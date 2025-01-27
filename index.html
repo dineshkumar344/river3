@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Karnataka Rivers</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      background-color: #00796b;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    header h1 {
+      font-size: 36px;
+    }
+
+    header p {
+      font-size: 20px;
+    }
+
+    .rivers {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .river-card {
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .river-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .river-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .river-info {
+      padding: 20px;
+    }
+
+    .river-info h2 {
+      font-size: 24px;
+      color: #00796b;
+      margin-bottom: 10px;
+    }
+
+    .river-info p {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .read-more {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #00796b;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 10px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .read-more:hover {
+      background-color: #004d40;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgb(0,0,0);
+      background-color: rgba(0,0,0,0.4);
+      padding-top: 60px;
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: 5% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 600px;
+      border-radius: 10px;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>Karnataka Rivers</h1>
+      <p>Discover the major rivers flowing through Karnataka, India.</p>
+    </header>
+
+    <section class="rivers">
+      <!-- River Cards -->
+      <div class="river-card">
+        <h2>Cauvery River</h2>
+        <img src="cavari.jpeg" alt="Cauvery River" class="river-img">
+        <div class="river-info">
+          <p><strong>Origin:</strong> Coorg, Karnataka</p>
+          <p><strong>Length:</strong> 805 km</p>
+          <p><strong>Significance:</strong> The Cauvery is one of the most important rivers in southern India, providing water to the states of Karnataka and Tamil Nadu. It is also known as the lifeline of both these states.</p>
+          <button class="read-more" onclick="openModal('cauvery')">Read More</button>
+        </div>
+      </div>
+
+      <div class="river-card">
+        <h2>Krishna River</h2>
+        <img src="kirshan.jpeg" alt="Krishna River" class="river-img">
+        <div class="river-info">
+          <p><strong>Origin:</strong> Mahabaleshwar, Maharashtra</p>
+          <p><strong>Length:</strong> 1,400 km</p>
+          <p><strong>Significance:</strong> The Krishna River is one of the longest rivers in India, flowing through Karnataka, Maharashtra, and Andhra Pradesh, and it plays a vital role in irrigation and drinking water supply in the region.</p>
+          <button class="read-more" onclick="openModal('krishna')">Read More</button>
+        </div>
+      </div>
+
+      <div class="river-card">
+        <h2>Ganga</h2>
+        <img src="ganga.jpeg" alt="Ganga River" class="river-img">
+        <div class="river-info">
+          <p><strong>Origin:</strong> Himalayas, Uttarakhand</p>
+          <p><strong>Length:</strong> 2,510 km</p>
+          <p><strong>Significance:</strong> The Ganga is one of the most revered rivers in India, though its presence in Karnataka is more symbolic in terms of its significance to Hindu culture.</p>
+          <button class="read-more" onclick="openModal('ganga')">Read More</button>
+        </div>
+      </div>
+
+      <div class="river-card">
+        <h2>Tungabhadra River</h2>
+        <img src="thungabadhra.jpeg" alt="Tungabhadra River" class="river-img">
+        <div class="river-info">
+          <p><strong>Origin:</strong> Bhadravathi, Karnataka</p>
+          <p><strong>Length:</strong> 531 km</p>
+          <p><strong>Significance:</strong> The Tungabhadra is a tributary of the Krishna River and flows through the central parts of Karnataka. It is vital for irrigation and has the Tungabhadra Dam.</p>
+          <button class="read-more" onclick="openModal('tungabhadra')">Read More</button>
+        </div>
+      </div>
+
+      <div class="river-card">
+        <h2>Sharavathi River</h2>
+        <img src="Sharavathi River.jpeg" alt="Sharavathi River" class="river-img">
+        <div class="river-info">
+          <p><strong>Origin:</strong> Western Ghats, Karnataka</p>
+          <p><strong>Length:</strong> 128 km</p>
+          <p><strong>Significance:</strong> Sharavathi is known for its scenic beauty and the Jog Falls, one of the highest waterfalls in India. It is an important river in the region, serving as a source of water and hydroelectric power.</p>
+          <button class="read-more" onclick="openModal('sharavathi')">Read More</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="cauveryModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('cauvery')">&times;</span>
+        <h2>Cauvery River</h2>
+        <p>The Cauvery River originates in the Coorg district of Karnataka, from the Brahmagiri hills.</p>
+        <p>It stretches for about 805 km through Karnataka and Tamil Nadu. The river plays an essential role in the irrigation of both states and has historical and religious importance.</p>
+        <p><strong>Major Features:</strong></p>
+        <ul>
+          <li>Provides irrigation water to vast agricultural lands in both states.</li>
+          <li>Home to many historical temples and towns.</li>
+          <li>Has several reservoirs, dams, and the famous KRS Dam.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="krishnaModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('krishna')">&times;</span>
+        <h2>Krishna River</h2>
+        <p>The Krishna River flows from Mahabaleshwar and passes through Maharashtra, Karnataka, and Andhra Pradesh. It is one of the longest rivers in India.</p>
+        <p><strong>Key Importance:</strong></p>
+        <ul>
+          <li>Supplies water to several irrigation projects across its basin.</li>
+          <li>Feeds the famous Nagarjuna Sagar and Almatti dams.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="gangaModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('ganga')">&times;</span>
+        <h2>Ganga River</h2>
+        <p>Known as the holiest river for Hindus, the Ganga flows from the Himalayas to the Bay of Bengal. Its presence in Karnataka is symbolic.</p>
+        <p>The river is associated with religious rituals and serves as a major lifeline in the northern parts of India.</p>
+      </div>
+    </div>
+
+    <div id="tungabhadraModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('tungabhadra')">&times;</span>
+        <h2>Tungabhadra River</h2>
+        <p>The Tungabhadra is a significant tributary of the Krishna River, and its waters help irrigate central Karnataka. The Tungabhadra Dam is an essential water source for the region.</p>
+      </div>
+    </div>
+
+    <div id="sharavathiModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('sharavathi')">&times;</span>
+        <h2>Sharavathi River</h2>
+        <p>Sharavathi River is known for its scenic beauty and is famous for Jog Falls, one of the highest waterfalls in India. The river is a source of hydroelectric power.</p>
+      </div>
+    </div>
+
+    <footer>
+      <p>Rivers of Karnataka - All Rights Reserved</p>
+    </footer>
+  </div>
+
+  <script>
+    // Function to open the modal
+    function openModal(river) {
+      document.getElementById(river + 'Modal').style.display = "block";
+    }
+
+    // Function to close the modal
+    function closeModal(river) {
+      document.getElementById(river + 'Modal').style.display = "none";
+    }
+
+    // Close modal when user clicks anywhere outside the modal content
+    window.onclick = function(event) {
+      if (event.target.classList.contains('modal')) {
+        closeModal('cauvery');
+        closeModal('krishna');
+        closeModal('ganga');
+        closeModal('tungabhadra');
+        closeModal('sharavathi');
+      }
+    }
+  </script>
+
+</body>
+</html>
